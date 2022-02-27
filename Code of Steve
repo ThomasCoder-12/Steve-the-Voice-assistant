@@ -1,12 +1,34 @@
+
+<!DOCTYPE html>
 <html>
+<head>
+<style>
+.voiceb {
+  background-color: dodgerblue;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
 <body style="background-color:darkred">
+
+</body>
+</html>
+
+
 
 <script>
 const startBtn = document.createElement("button");
-startBtn.innerHTML = "Click here to Speak";
+startBtn.innerHTML = '<button class="voiceb">Speak</button>';
 const result = document.createElement("div");
 const processing = document.createElement("p");
-document.write("<body><h1><u>Steve</u></h1><br></body>");
+document.write("<body><h1><u>Steve (Specialized Tech Earned for Various Events)</u></h1><br></body>");
 document.body.append(startBtn);
 document.body.append(result);
 document.body.append(processing);
@@ -44,10 +66,10 @@ if (typeof SpeechRecognition === "undefined") {
 	toggleBtn = () => {
 		if (listening) {
 			recognition.stop();
-			startBtn.textContent = 'Speak';
+			startBtn.innerHTML = '<button class="voiceb">Speak</button>';
 		} else {
 			recognition.start();
-			startBtn.textContent = "Listening";
+			startBtn.innerHTML = '<button class="voiceb">Listening</button>';
 		}
 		listening = !listening;
 	};
@@ -62,15 +84,29 @@ function process(rawText) {
 	let response = null;
 	switch(text) {
 		case "hello":
-			response = "hi, how are you doing? Sir"; break;
+			response = "Hi, how are you doing, Sir?"; break;
+		case "whatcanyoudo":
+			response = "I can help you to find answers to your queries, open links, set reminders, schedule tasks"; break;
                 case "iamfine":
 			response = "Ok, so what do you want me to do, Sir?"; break;
+                case "todolist":
+			response = '<a href="https://docs.google.com/spreadsheets/d/1Y4EbbRQWgla0rFk9fgddX7h2e_ZEAUDA2AcF2-AXvpQ/edit#gid=1386834576" target="_blank">This is your To-do list, Sir</a>'; break;
+                case "whatwereweworkingon":
+			response = '<a href="chrome://history" target="_blank">We were working on this, Sir</a>'; break;
+                case "history":
+			response = '<a href="chrome://history" target="_blank">History, Sir</a>'; break;
 		case "hellosteve":
 			response = "hi, how are you doing? Sir"; break;
 		case "hi":
 			response = "hi, how are you doing? Sir"; break;
 		case "histeve":
 			response = "hi, how are you doing? Sir"; break;
+                case "startmyday":
+			response = "Good morning, Sir!"; break;
+                case "showmycalendar":
+                        response = '<a href="https://calendar.google.com" target="_blank">This is your calendar, Sir.</a>'; break;
+                case "showmynotes":
+                        response = '<a href="https://keep.google.com" target="_blank">This is your notes, Sir.</a>'; break;
                 case "playmusic":
                         response = '<a href="https://open.spotify.com" target="_blank">This is spotify, Sir.</a>'; break;
                 case "opengooglekeep":
@@ -91,11 +127,15 @@ function process(rawText) {
                         response = '<a href="https://maps.google.com" target="_blank">This is your Google Maps, Sir</a>'; break;
                 case "openwhatsapp":
                         response = '<a href="https://web.whatsapp.com" target="_blank">This is your Whatsapp, Sir</a>'; break
+                case "opencalculator":
+                        response = '<a href="file:///C:/Users/Dell/Documents/calc.htm">This is the Calculator, Sir</a>'; break;
                 case "openwhiteboard":
                         response = '<a href="https://jamboard.google.com" target="_blank">This is your Whiteboard, Sir</a>'; break;
                 case "bye":
                         response = "See you, Sir. Take care bye, Sir"; break;
-                case "news":
+                case "openprayerpoint":
+                        response = '<a href="file:///C:/Intel/prayer%20point.htm">This is Prayer-Point, Sir</a>'; break;
+                case "then":
                         response = '<a href="https://timesofindia.indiatimes.com/home/headlines?from=mdr" target="_blank">News headlines</a>'; break;
                 case "newmessages":
                         response = '<a href="https://web.whatsapp.com" target="_blank">Think so</a>'; break;
@@ -103,6 +143,14 @@ function process(rawText) {
                         response = '<a href="https://mail.google.com" target="_blank">This is your Gmail, Sir</a>'; break;
                 case "doihaveanymessages":
                         response = '<a href="https://web.whatsapp.com" target="_blank">Think so</a>'; break;
+                case "opencfc":
+                        response = '<a href="https://www.cfcindia.com">Here you go, understand messages well</a>'; break;
+                case "openillustrations":
+                        response = '<a href="https://www.cfcindia.com/series/illustrations-by-zac-poonen">Here you go, Understand well</a>'; break;
+                case "openenduringword":
+                        response = '<a href="https://enduringword.com/">Here you go, Study well</a>'; break;
+                case "openyouversion":
+                        response = '<a href="https://www.bible.com">Here you go, understand messages well</a>'; break;
                 case "playmusicforstudy":
                         response = '<iframe width="853" height="480" src="https://www.youtube.com/embed/KEnL93sCbww" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Study well! Sir</iframe>'; break;
                 case "ok":
@@ -119,14 +167,16 @@ function process(rawText) {
                         response = "Online, Sir"; break;
                 case "steve":
                         response = "Online, Sir"; break;
-                case "startmyday":
-                        response = "Good morning Sir!"; break;
                 case "nothing":
                         response = '<button onClick="history.go(0);">Click here to quit</button>'; break;
                 case "thankyou":
                         response = "Welcome!"; break;
+                case "thanks":
+                        response = "Welcome!"; break;
+                case "thankssteve":
+                        response = "Welcome! Sir"; break;
                 case "thankyousteve":
-                        response = "Welcome!Sir"; break;
+                        response = "Welcome! Sir"; break;
                 case "sure":
                         response = "Ok fine, Sir"; break;
                 case "doingwell":
